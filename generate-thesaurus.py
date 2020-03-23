@@ -20,6 +20,7 @@ def main():
                 shortest_synonym = word
         if shortest_synonym != keyword:
             thesaurus[keyword] = shortest_synonym
+            print(keyword, "->", shortest_synonym)
 
 
 main()
