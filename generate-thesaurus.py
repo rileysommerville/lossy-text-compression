@@ -8,5 +8,17 @@ def main():
     response = requests.get(URL)
     text = response.text
 
+    thesaurus = {}
+
+    lines = text.split("\n")
+    for line in lines:
+        words = line.split(",")
+        keyword = words[0]
+        shortest_synonym = keyword
+        for word in words[1:]:
+            if len(shortest_synonym) > len(word):
+                shortest_synonym = word
+        thesaurus[keyword] = shortest_synonym
+
 
 main()
