@@ -18,7 +18,8 @@ def main():
         for word in words[1:]:
             if len(shortest_synonym) > len(word):
                 shortest_synonym = word
-        thesaurus[keyword] = shortest_synonym
+        if shortest_synonym != keyword:
+            thesaurus[keyword] = shortest_synonym
 
 
 main()
