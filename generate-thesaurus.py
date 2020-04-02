@@ -8,7 +8,6 @@ def main():
     response = requests.get(URL)
     text = response.text
 
-    thesaurus = {}
     out_file = open(OUTPUT_FILE, 'w')
 
     lines = text.split("\n")
@@ -20,7 +19,6 @@ def main():
             if len(shortest_synonym) > len(word) > 2:
                 shortest_synonym = word
         if shortest_synonym != keyword:
-            thesaurus[keyword] = shortest_synonym
             print(keyword, "->", shortest_synonym)
             print("{},{}".format(keyword, shortest_synonym, file=out_file)
 
