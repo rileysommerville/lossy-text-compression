@@ -2,13 +2,14 @@
 import requests
 
 URL = "https://raw.githubusercontent.com/words/moby/master/words.txt"
-
+OUTPUT_FILE = "thesaurus.csv"
 
 def main():
     response = requests.get(URL)
     text = response.text
 
     thesaurus = {}
+    out_file = open(OUTPUT_FILE, 'w')
 
     lines = text.split("\n")
     for line in lines:
@@ -21,6 +22,9 @@ def main():
         if shortest_synonym != keyword:
             thesaurus[keyword] = shortest_synonym
             print(keyword, "->", shortest_synonym)
+            print("{},{}".format(keyword, shortest_synonym, file=out_file)
+
+    out_file.close()
 
 
 main()
